@@ -1,10 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+// Importando o componente Cesta a partir do diretório;
+import Cesta from "./src/telas/cesta";
+
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>  Meu primeiro aplicativo em React Native</Text>
+      <Cesta />
 
 
       <StatusBar style="auto" />
@@ -19,4 +23,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  font:{
+    color: "black",
+    fontSize: "12px",
+    textAlign: "center"
+  }
 });
