@@ -1,31 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import {StatusBar, SafeAreaView, Text, View} from 'react-native';
 
-// Importando o componente Cesta a partir do diretório;
-import Cesta from "./src/telas/cesta";
 
+// expo install expo-font @expo-google-fonts/montserrat
+// importação de fontes externas
+import {
+    useFonts,
+    Montserrat_400Regular,
+    Montserrat_700Bold,
+} from '@expo-google-fonts/montserrat';
+
+
+import Cesta from "./src/telas/Cesta";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Cesta />
 
+    /* Uma variavel vai receber um objeto contendo o mapa de fontes
+    * nele iremos dar um nome para duas fontes e em seguida iremos
+    *
+    * */
+    let [fontsLoaded] = useFonts({
+        "MontserratRegular": Montserrat_400Regular,
+        "MontserratBold" : Montserrat_700Bold
+    });
 
-      <StatusBar style="auto" />
-    </View>
+    if (!fontsLoaded) {
+        return null;
+    }
+
+    return (
+      <SafeAreaView>
+              <Cesta />
+      </SafeAreaView>
+
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  font:{
-    color: "black",
-    fontSize: "12px",
-    textAlign: "center"
-  }
-});
+};
