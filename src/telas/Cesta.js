@@ -1,8 +1,8 @@
-import React from "react";  // importaçãod o react
-import {Image,View, Text, StyleSheet, Dimensions}  from "react-native"; // importação de módulos do react native
+import React from "react"; // importaçãod o react
+import {Dimensions, Image, StyleSheet, Text, View} from "react-native"; // importação de módulos do react native
 import topo from '../../assets/topo.png'; // importação do topo da página
 import logo from '../../assets/logo.png'; // importação da logo;
-import Texto from '../componentes/Texto';  // importação do componente Texto;
+import Texto from '../componentes/Texto'; // importação do componente Texto;
 
 // constante que vai pegar o tamanho da tela;
 const width = Dimensions.get('screen').width;
@@ -29,6 +29,8 @@ export default function Cesta() {
 
                 <Text style={estilos.descricao}> Uma cesta de produtos cuidadosamente selecionados;</Text>
                 <Text style={estilos.preco}> R$40,00</Text>
+
+                <Texto>Fazendo um teste </Texto>
 
 
             </View>
