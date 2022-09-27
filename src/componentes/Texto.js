@@ -1,23 +1,23 @@
-//Importação do React
 import React from 'react';
+import {StyleSheet, Text} from 'react-native';
 
-//Importação dos componentes do React-native que serão utilizados;
-import {Text, StyleSheet} from 'react-native';
+export default function Texto({children, style}) {
+  let estilo = estilos.texto;
 
+  if (style?.fontWeight === 'bold') {
+    estilo = estilos.textoNegrito;
+  }
 
-/*Função que irá fazer as devidas alterações no corpo do texto
-O react-native já disponibiliza os dados para os componentes filhoes
-Basta passar o childrem como parametro {algo muito parecido com as props}*/
-export default function Texto ({ childrem }){
-    return <Text style={estilos.texto}> {childrem} </Text>
-
+  return <Text style={[style, estilo]}>{children}</Text>
 }
 
 const estilos = StyleSheet.create({
-    texto: {
-        fontFamily: "MontserratRegular",
-    }
-
-
-
-})
+  texto: {
+    fontFamily: 'MontserratRegular',
+    fontWeight: 'normal',
+  },
+  textoNegrito: {
+    fontFamily: 'MontserratBold',
+    fontWeight: 'normal',
+  }
+});
